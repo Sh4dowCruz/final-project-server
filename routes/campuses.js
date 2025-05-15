@@ -65,5 +65,15 @@ router.put('/:id', ash(async(req, res) => {
   res.status(201).json(campus);  // Status code 201 Created - successful creation of a resource
 }))
 
+/* DELETE CAMPUS */
+router.delete('/:id', ash(async(req, res) => {
+  await Campus.destroy({
+    where: {
+      id: req.params.id
+    }
+  });
+  res.status(200).json("Deleted a campus!");
+}));
+
 // Export router, so that it can be imported to construct the apiRouter (app.js)
 module.exports = router;

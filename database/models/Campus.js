@@ -20,8 +20,17 @@ const Campus = db.define("campus", {
 
   description: {
     type: Sequelize.STRING,
+  },
+
+  imageUrl: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      isUrl: true 
+    },
   }
-});
+  }
+);
 
 // Export the campus model
 module.exports = Campus;
